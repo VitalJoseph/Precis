@@ -1,0 +1,52 @@
+---
+title: "Professional Précis"
+subtitle: "Author: (Vital Joseph II)"
+---
+
+# About the Author
+
+Hello, my name is Vital Joseph, I am a junior here at Allegheny, majoring in computer science. I play on the football team here as well. I am looking forward to collaborating with everyone throughout the semester. I think this class is going to be very helpful for us all even though it might seem like a lot at the start, but I am ready to take on the challenge with you all.
+
+
+# Week 1
+
+## SE1
+
+#### Summary
+
+The contents of Preface went over the meaning of "software engineering" and what distinguished the term from programming, computer science, etc. Also how it compared to other terms that had "engineering" in it. Programming Over Time introduces the aspect of software engineering that deals with time. As a software engineer you want to program tools and software that stays valuable over a period of time.
+
+#### Reflection
+
+Reading through SE1 I got a better understanding of the term "software engineering" and what the goal of a software engineer's work should always encompass, which is longevity really. Through time, code and programs tend to become less sustainable and harder to use and understand. It is the software engineer's job to make software that is able to adapt and change over time, not just in the present.
+
+#### Use-Case
+
+To relate the readings to the chasten project, I believe our goal as a team is to make sure the tools we implement into chasten are not only bug free, but susceptible to a wide variety of patterns. The program uses expressions to find patterns in python program, so it would be more sustainable to recognize as many patterns as possible. 
+
+## FB1
+
+#### Summary
+
+The contents of FB1 go into detail about software testing and how important it is to software. Examples of simple function testing are provided, as well as test execution, test generating, and test checking. An example of an automated test used in the read can be seen below.
+
+```python
+import bookutils
+
+from Timer import Timer
+
+with Timer() as t:
+    for n in range(1, 10000):
+        assertEquals(my_sqrt(n) * my_sqrt(n), n)
+print(t.elapsed_time())
+
+```
+As you can see in the example above, `assertEquals` is used, which is a statement that checks if two values are equal. If true then nothing happens, but if false then an exception is raised, meaning a failed test. You can also see the Timer module is imported, allowing us to record the runtime of the test, which in this case is the output would be `0.0336528339976212`.
+
+#### Reflection
+
+Testing is a vital part of software engineering, testing helps identify bugs and locate bugs in programs that can cause crashes. Testing also helps is also a way to validate your code and shows that the user's needs are met. It can help miminimze risk later on in projects as well by pointing out bugs early on so that they dont come up later in the develpment process.
+
+#### Use-Case
+
+Making test is something that we will have to do in our develpment process of chasten. I think a group of people who are good at making test cases should be are so called bug finders. That way we could have multiple hands on different implementations instead of one person making their own test case for their own implementation. This would result in more bug-free code in my opinion.

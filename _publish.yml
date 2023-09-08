@@ -1,0 +1,4 @@
+- source: project
+  netlify:
+    - id: 254a7241-fab6-4752-89fb-3a5d23849b15
+      url: 'https://vital-joseph.netlify.app'
