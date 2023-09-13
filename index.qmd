@@ -50,3 +50,20 @@ Testing is a vital part of software engineering, testing helps identify bugs and
 #### Use-Case
 
 Making test is something that we will have to do in our develpment process of chasten. I think a group of people who are good at making test cases should be are so called bug finders. That way we could have multiple hands on different implementations instead of one person making their own test case for their own implementation. This would result in more bug-free code in my opinion.
+
+
+# Week 2
+
+## SE2
+
+#### Summary
+
+What is Software Engineering dives into the aspects of software engineering and the approach that google uses to have a sustainable codebase. The text goes into to detail how software engineering and programming are not the same. A lot of the difference is seen in the management of code over time, the scale and efficiency, and the decision making of the trade-offs and costs.
+
+#### Reflection
+
+Reading the contents of SE2, I understand software engineering in a different light. I always though of software engineering as just programming and never reealised there is much more to it. Programming is a vital part to software engineering but it certainly isnt all software engineering is. Now when I think of software engineering, I think of not only programming but modifcation, maintenece, testing, documentaion, etc. All areas that that are just as important as the development process of a program.
+
+#### Use-Case
+
+Through the develpoment process of chasten we need to make sure that we need stay on top of our maintnence an documentation for chasten to be sutainable. We are starting to get more comfortbale with adressing issues and assigning people to fix said issues as well as documenting any uncertaincies or problems we might come across. As long as we continue to improve as a collective we should be succsessful.
