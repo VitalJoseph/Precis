@@ -67,3 +67,38 @@ Reading the contents of SE2, I understand software engineering in a different li
 #### Use-Case
 
 Through the develpoment process of chasten we need to make sure that we need stay on top of our maintnence an documentation for chasten to be sutainable. We are starting to get more comfortbale with adressing issues and assigning people to fix said issues as well as documenting any uncertaincies or problems we might come across. As long as we continue to improve as a collective we should be succsessful.
+
+
+## FB2
+
+#### Summary
+
+This chapter of fuzzing book talks covers the coverage of code, which is the measurement of which parts of a program are actually executed during a test run. Code coverage tools can also show which parts of code have remained untested. Some types of code coverage mentioned in this chapter include line coverage, branh coverage, and statement coverage. Line covergage being a tool or metric that shows which lines of code were touched when running tests. Line coverage uses the `trace` method, which returns a list of lines executed in order. An example of line coverage can be seen below:
+```python
+>>> cov.coverage()
+{('cgi_decode', 8),
+ ('cgi_decode', 9),
+ ('cgi_decode', 10),
+ ('cgi_decode', 11),
+ ('cgi_decode', 12),
+ ('cgi_decode', 15),
+ ('cgi_decode', 16),
+ ('cgi_decode', 17),
+ ('cgi_decode', 18),
+ ('cgi_decode', 19),
+ ('cgi_decode', 20),
+ ('cgi_decode', 21),
+ ('cgi_decode', 30),
+ ('cgi_decode', 31),
+ ('cgi_decode', 32)}
+```
+as you can see, the coverage method produces lines of code from the `trace` method that have executed at least once. Branch coverage is also important because it measure branches in code, which are the if statment and loops. Statement coverageis just a more fined tuned metric of line coverage because it measure each stement of code.
+
+
+#### Reflection
+
+Coverage is important in a program because it shows which parts of the code have been covered by tests and which parts remain untested. It isnt necessarily a test itself though and that was what I had to get my head wrapped around while reading. It simply helps with code testing my providing vital information that can be used to show that a test might need to be improved.
+
+#### Use-Case
+
+For the development of chasten, code coverage will be important for people working on test cases. It will show whether our test cases are efficient or not. Line and Branch coverage are probably going to be the most common and simple to implement. It might be tidious, but it will help ensure our test or testing the right code and help with sustainability.
