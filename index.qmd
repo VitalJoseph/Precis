@@ -102,3 +102,20 @@ Coverage is important in a program because it shows which parts of the code have
 #### Use-Case
 
 For the development of chasten, code coverage will be important for people working on test cases. It will show whether our test cases are efficient or not. Line and Branch coverage are probably going to be the most common and simple to implement. It might be tidious, but it will help ensure our test or testing the right code and help with sustainability.
+
+
+# Week 3
+
+## SE3
+
+#### Summary
+
+Reading the chapter of SE3, "How to Work Well on Teams", I found that the authors wanted to explain the importance of working with other people in software engineering and how to succeed in a engineering team. You have to evaluate yourself as a colleuge and make sure you have the basic foundation pillars you need to work with other people. Those pillars stem around humilty, trust, and respect.
+
+#### Reflection
+
+Reading this chapter I self reflected on myself as a member of a working team and asked myself questions about the three pillars of social interaction. 1. Am I afraid of people seeing that I am not familiar with ceartain technical skills? 2. Do I provide assistance when needed and do I seek assistance? Do I have trust that we will implement and fix the necessary tools for oour project? These questions I feel if answered truthfully will give insight on where you are at as a team player.
+
+#### Use-Case
+
+As we work with chasten, we have to make sure that we voice our uncertaincies or disapprovements to everyone. It is important that everyone is heard and feels like they have a voive in the matter. We are lso in a class where different people hast different levels of technical skills, It is our duty to assist in areas where we feel like we are technically advanced or at least have a firm idea of what to do and how to do it. The more we grow as a team, technically, the faster the development process will move along. The aim of this course is not meant for certain people with more expertise to carry the load, everyone should come out of the course with the same understanding of how our software works.
