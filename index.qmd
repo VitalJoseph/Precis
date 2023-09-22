@@ -125,7 +125,7 @@ As we work with chasten, we have to make sure that we voice our uncertaincies or
 #### Summary
 
 In the "fuzzing" chapter of fuzzingbook, the main topic is fuzzing also known as random text generation. Which is the randomization of characters based on certain constraint into a string. In the chapter a simple fuzzer function is ran:
-```
+```python
 def fuzzer(max_length: int = 100, char_start: int = 32, char_range: int = 32) -> str:
     """A string of up to `max_length` characters
        in the range [`char_start`, `char_start` + `char_range`)"""
@@ -136,7 +136,7 @@ def fuzzer(max_length: int = 100, char_start: int = 32, char_range: int = 32) ->
     return out
 ```
 As you can see the `fuzzer` function takes in a max length which defaults to 100, this is how many charcaters are in the string. Then we have char start and range which is used in chr function towards the end of the function. This just gives a range of how many different ASCII codes are used iin the string. If all is correct then you should get a output looking like this.
-```
+```python
 '!7#%"*#0=)$;%6*;>638:*>80"=</>(/*:-(2<4 !:5*6856&?""11<7+%<%7,4.8,*+&,,$,."'
 ```
 A string full of random generated characters.
