@@ -119,3 +119,32 @@ Reading this chapter I self reflected on myself as a member of a working team an
 #### Use-Case
 
 As we work with chasten, we have to make sure that we voice our uncertaincies or disapprovements to everyone. It is important that everyone is heard and feels like they have a voive in the matter. We are lso in a class where different people hast different levels of technical skills, It is our duty to assist in areas where we feel like we are technically advanced or at least have a firm idea of what to do and how to do it. The more we grow as a team, technically, the faster the development process will move along. The aim of this course is not meant for certain people with more expertise to carry the load, everyone should come out of the course with the same understanding of how our software works.
+
+## FB3
+
+#### Summary
+
+In the "fuzzing" chapter of fuzzingbook, the main topic is fuzzing also known as random text generation. Which is the randomization of characters based on certain constraint into a string. In the chapter a simple fuzzer function is ran:
+```
+def fuzzer(max_length: int = 100, char_start: int = 32, char_range: int = 32) -> str:
+    """A string of up to `max_length` characters
+       in the range [`char_start`, `char_start` + `char_range`)"""
+    string_length = random.randrange(0, max_length + 1)
+    out = ""
+    for i in range(0, string_length):
+        out += chr(random.randrange(char_start, char_start + char_range))
+    return out
+```
+As you can see the `fuzzer` function takes in a max length which defaults to 100, this is how many charcaters are in the string. Then we have char start and range which is used in chr function towards the end of the function. This just gives a range of how many different ASCII codes are used iin the string. If all is correct then you should get a output looking like this.
+```
+'!7#%"*#0=)$;%6*;>638:*>80"=</>(/*:-(2<4 !:5*6856&?""11<7+%<%7,4.8,*+&,,$,."'
+```
+A string full of random generated characters.
+
+#### Reflection
+
+Reading through the chapter I got a better understanding of the importance of fuzzing and how it played in testing mostly. Fuzzing can help identify bugs and vulnerabilities in code because it examplifies user-generated datac and not fixed inputs. This will show how well a program can handle diverse inputs.
+
+#### Use-Case
+
+While working on chasten it will be important to implement fuzzing testing technique to simulate user behaviour because the goal is for  chasten to be a user friendly software that students and faculty can use everyday.
