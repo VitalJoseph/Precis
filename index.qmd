@@ -148,3 +148,34 @@ Reading through the chapter I got a better understanding of the importance of fu
 #### Use-Case
 
 While working on chasten it will be important to implement fuzzing testing technique to simulate user behaviour because the goal is for  chasten to be a user friendly software that students and faculty can use everyday.
+
+
+# Week 4
+
+## SE4
+
+#### Summary
+
+The chapter's "Knowledge Sharing" in SE main topic is organization. What is an organization in software engineering. Basically, a group of engineers and developers that come together to create and maintain software. Just like any team, there are challenges that you have to overcome to be successful in your project or end goal. Software orgranizations sometimes have problems creating cultures of learning where people are not afraid to share their lack of knowledge to gain knowledge from others. You have to give a little to get a little.
+
+#### Reflection
+
+Reading the chapter I reflected on what it takes to develop a environment where learning is the norm. You have to make sure that you, as someone that maybe has a lack of knowledge is a cerain area, communicate with others to and let it be known that you are seeking help. As well as the person that has a expetise in an area. For one, it is important that you branch out of area that your familiar with and challenge yourself as a software enginneer.  It is also important that you help others and share your knowledge if ypu are furhter along in an area or further along in solving an issue.
+
+#### Use-Case
+
+During the development process of chasten I think that as a class we are starting to get the ball running with just overall knowledge of the tools in chasten and how they work, but I think that some people are further along as others and it is important that they realize that and try and share their knowledge in instances. It is also important to work on diverse issues when choosing which ones you want to resolve, there are issue that work with source code as well as documentation.
+
+## FB4
+
+#### Summary
+
+
+
+#### Reflection
+
+
+
+#### Use-Case
+
+
