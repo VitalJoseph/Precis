@@ -170,12 +170,56 @@ During the development process of chasten I think that as a class we are startin
 
 #### Summary
 
+This chapter of `fuzzingbook` covers mutation analysis, which is another testing technique used to evaluate the effectiveness of a set of test cases. This testing technique measures the ability to detect changes or mutations in the source code of functions. The book uses the vocabulary "artificial faults" as changes to  function. Here is an example:
+```python
+def triangle_m1(a, b, c):
+    if a == b:
+        if b == c:
+            return 'Equilateral'
+        else:
+            # return 'Isosceles'
+            return None  # <-- injected fault
+    else:
+        if b == c:
+            return "Isosceles"
+        else:
+            if a == c:
+                return "Isosceles"
+            else:
+                return "Scalene"
+```
+As you can see a change has been made in the function. And a test case is used to detect any changes:
 
+```python
+with ExpectError():
+    strong_oracle(triangle_m1)
+```
+This is the output:
+```python
+Traceback (most recent call last):
+  File "/var/folders/xx/h9_h9csd3_9f81t89rrf1qr00000gn/T/ipykernel_15695/3191755624.py", line 2, in <module>
+    strong_oracle(triangle_m1)
+  File "/var/folders/xx/h9_h9csd3_9f81t89rrf1qr00000gn/T/ipykernel_15695/566939880.py", line 5, in strong_oracle
+    assert fn(2, 2, 1) == 'Isosceles'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError (expected)
+```
+The test case detected the mutation and produced and Error because it was expecting Itosceles instead of None.
 
 #### Reflection
+When looking at the strong_oracle and weak_oracle functions I was finding it hard to distinguish why one produced an error and one did not at first, but then I took a closer look at the weak_oracle function and saw that it used the did not equal operator which then skips the part of the function that was mutated. Thia made me realise the imnportance of having a strong test case.
+```python
+def weak_oracle(fn):
+    assert fn(1, 1, 1) == 'Equilateral'
 
+    assert fn(1, 2, 1) != 'Equilateral'
+    assert fn(2, 2, 1) != 'Equilateral'
+    assert fn(1, 2, 2) != 'Equilateral'
+
+    assert fn(1, 2, 3) != 'Equilateral'
+```
 
 
 #### Use-Case
 
-
+It is important in chasten that we implement new techniques that we learn throughout this course whether it be for test cases or implemeting source code. The more you can make software sustainable and bug-free the better. We should be aiming to learning new ways to do cerain tasks while reading through our books and then transferring that knowledge into our project.
