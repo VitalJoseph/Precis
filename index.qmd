@@ -8,7 +8,7 @@ subtitle: "Author: (Vital Joseph II)"
 Hello, my name is Vital Joseph, I am a junior here at Allegheny, majoring in computer science. I play on the football team here as well. I am looking forward to collaborating with everyone throughout the semester. I think this class is going to be very helpful for us all even though it might seem like a lot at the start, but I am ready to take on the challenge with you all.
 
 
-# Week 1
+# Week 2
 
 ## SE1
 
@@ -52,7 +52,7 @@ Testing is a vital part of software engineering, testing helps identify bugs and
 Making test is something that we will have to do in our develpment process of chasten. I think a group of people who are good at making test cases should be are so called bug finders. That way we could have multiple hands on different implementations instead of one person making their own test case for their own implementation. This would result in more bug-free code in my opinion.
 
 
-# Week 2
+# Week 3
 
 ## SE2
 
@@ -104,7 +104,7 @@ Coverage is important in a program because it shows which parts of the code have
 For the development of chasten, code coverage will be important for people working on test cases. It will show whether our test cases are efficient or not. Line and Branch coverage are probably going to be the most common and simple to implement. It might be tidious, but it will help ensure our test or testing the right code and help with sustainability.
 
 
-# Week 3
+# Week 4
 
 ## SE3
 
@@ -150,7 +150,7 @@ Reading through the chapter I got a better understanding of the importance of fu
 While working on chasten it will be important to implement fuzzing testing technique to simulate user behaviour because the goal is for  chasten to be a user friendly software that students and faculty can use everyday.
 
 
-# Week 4
+# Week 5
 
 ## SE4
 
@@ -225,7 +225,7 @@ def weak_oracle(fn):
 It is important in chasten that we implement new techniques that we learn throughout this course whether it be for test cases or implemeting source code. The more you can make software sustainable and bug-free the better. We should be aiming to learning new ways to do cerain tasks while reading through our books and then transferring that knowledge into our project.
 
 
-# Week 5
+# Week 7
 
 ## SE5
 
@@ -283,3 +283,34 @@ The purpose of mutation based analysis is to discover bugs, vulnerabilities, and
 #### Use-Case
 
 When working with chasten I think some fo the tools like integrate and datasette can incorpaorate mutation based fuzzing when running tests because I know that the input to run those command require different file paths that can be mutated.
+
+
+# Week 8
+
+## SE6
+
+#### Summary
+
+
+
+#### Reflection
+
+
+
+#### Use-Case
+
+
+
+## FB6
+
+#### Summary
+
+
+
+#### Reflection
+
+
+
+#### Use-Case
+
+
