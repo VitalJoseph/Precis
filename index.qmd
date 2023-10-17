@@ -204,7 +204,7 @@ Traceback (most recent call last):
            ^^^^^^^^^^^^^^^^^^^^^^^^^^
 AssertionError (expected)
 ```
-The test case detected the mutation and produced and Error because it was expecting Itosceles instead of None.
+The test case detected the mutation and produced and Error because it was expecting Isosceles instead of None.
 
 #### Reflection
 When looking at the strong_oracle and weak_oracle functions I was finding it hard to distinguish why one produced an error and one did not at first, but then I took a closer look at the weak_oracle function and saw that it used the did not equal operator which then skips the part of the function that was mutated. Thia made me realise the imnportance of having a strong test case.
@@ -223,3 +223,63 @@ def weak_oracle(fn):
 #### Use-Case
 
 It is important in chasten that we implement new techniques that we learn throughout this course whether it be for test cases or implemeting source code. The more you can make software sustainable and bug-free the better. We should be aiming to learning new ways to do cerain tasks while reading through our books and then transferring that knowledge into our project.
+
+
+# Week 5
+
+## SE5
+
+#### Summary
+
+The chapter "Engineering for Equity" discusses the importance of equity and inclusivity in software engineering and talks about the challenges and failures that derive from biases. It emphasizes the importance of building products that work for a diverse user base and addressing biases that can affect software design and decision-making. The text also provides several examples of failures, such as Google's image recognition issues and challenges in facial recognition technology.
+
+#### Reflection
+
+Reading this chapter I personally havent experienced biases with software but I have heard of or seen instances of it happening. I think as a software engineer it is important to realze how much power you have and how much influence you have as well. A tool that is implemented can shape a whole person well being and make them feel a certain type of way because of their experience with said tool or software.
+
+#### Use-Case
+
+When relating this to our project `chasten`. I think that a bias that is currently used when working with chasten is the fact that the program only works for python source code as of right now. What happens when someone tries to use our program with a C based language or JavaScript? I think that can be a bias that we would have to fix in the future.
+
+## FB5
+
+#### Summary
+
+"Mutation-Based Fuzzing" goes over just that, a testing technique that test inputs that can be considered valid for the software. These inputs can include different types of data like files, network packets, or command-line arguments. The inputs are then mutated slightly to keep the input valid, yet exercise new behavior. An example is seen below:
+```python
+def delete_random_character(s: str) -> str:
+    """Returns s with a random character deleted"""
+    if s == "":
+        return s
+
+    pos = random.randint(0, len(s) - 1)
+    # print("Deleting", repr(s[pos]), "at", pos)
+    return s[:pos] + s[pos + 1:]
+
+seed_input = "A quick brown fox"
+for i in range(10):
+    x = delete_random_character(seed_input)
+    print(repr(x))
+```
+In the function above you see that a random character is deleted from the string every time its ran. This is what the output looks like:
+
+```python
+'A uick brown fox'
+'A quic brown fox'
+'A quick brown fo'
+'A quic brown fox'
+'A quick bown fox'
+'A quick bown fox'
+'A quick brown fx'
+'A quick brown ox'
+'A quick brow fox'
+'A quic brown fox'
+```
+
+#### Reflection
+
+The purpose of mutation based analysis is to discover bugs, vulnerabilities, and unexpected behavior in a program, but the main thing this type of testing finds is vulnerbalitlties. By mutating inputs then running the program, if crashes were to occur then an indiction of potential vulnervalieties can considered or even if crashes were not to occure then vunerabilities can be detected depending on the expected output.
+
+#### Use-Case
+
+When working with chasten I think some fo the tools like integrate and datasette can incorpaorate mutation based fuzzing when running tests because I know that the input to run those command require different file paths that can be mutated.
