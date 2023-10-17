@@ -291,15 +291,15 @@ When working with chasten I think some fo the tools like integrate and datasette
 
 #### Summary
 
-
+The chapter "How to Lead a Team" first dives into the two different leadership roles, a mangaer and a tech lead. These are two different leadership roles that are important to a team simultameously. The text aslo highlights servant leadership which is the concept of striving to create an atmosphere of humility, respect, and trust. It also is serving the needs of others and the well-being of the team or organization. "Antipatterns" are also discussed, which are patterns that managers should avoid at all cost. Some patterns include hiring people that can be controlled and manipulated easily, not adressing team members that seem to be struggling technically, or ignoring the overall personal needs of the team.
 
 #### Reflection
 
-
+Managers and tech leads require a different set of skills. Now can you be both, yes you can, but a manager is more of a person that can lead people and set up plans to get tasks done. A tech lead is a person that can lead engineering efforts and help assist with different software implementations. I categorize myself as a little bit of both but more of a tech lead, because once I fully understand an area I lead engineering efforts and help assist with different software implementations in that area.
 
 #### Use-Case
 
-
+As a team I think we have a number of people that are willing to take charge and be managers at times, and as the semster goes on, more and more people are getting more comfortable leading class. The problem that we run into is that we one dont have an abundance of tech leads, but too, we are not activley working in the same environment when working on the project. I think if we had class time where we could actively communicate with everyone and share our issues and knowledge, we would be better off.
 
 ## FB6
 
