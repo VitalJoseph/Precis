@@ -305,12 +305,55 @@ As a team I think we have a number of people that are willing to take charge and
 
 #### Summary
 
+The "Chapter fuzzing with Grammar" encovers grammar-based fuzzing, which is an approach to automated software testing. This approach involes generating wide ranges of valid inputs that follow a specific grammar. A grammer is basically a set of rules that the syntax of your input data is based on. This is an example of a grammer:
+```python
+CGI_GRAMMAR: Grammar = {
+    "<start>":
+        ["<string>"],
 
+    "<string>":
+        ["<letter>", "<letter><string>"],
+
+    "<letter>":
+        ["<plus>", "<percent>", "<other>"],
+
+    "<plus>":
+        ["+"],
+
+    "<percent>":
+        ["%<hexdigit><hexdigit>"],
+
+    "<hexdigit>":
+        ["0", "1", "2", "3", "4", "5", "6", "7",
+            "8", "9", "a", "b", "c", "d", "e", "f"],
+
+    "<other>":  # Actually, could be _all_ letters
+        ["0", "1", "2", "3", "4", "5", "a", "b", "c", "d", "e", "-", "_"],
+}
+```
+As you can see, the key in this dictionary is the "symbol". The symbol can be defined only once within a dictionary. Using the simple grammer fuzzer method, we can produce random valid inputs like this:
+```python
+print("valid inputs")
+for i in range(10):
+    print(simple_grammar_fuzzer(grammar=CGI_GRAMMAR, max_nonterminals=10))
+
+valid inputs
++%9a
++++%ce+
++_
++%c6c
+++
++%cd+5
+1%ee
+%b9%d5
+%96
+%57d%42
+```
 
 #### Reflection
 
-
+Reading through this chapter of fuzzingbook I recalled working with grammars before in cmpsc201, specifically with interpreters. So it was refreshing to see concepts that we learned before used in a different type of software engineering area. Nonetheless, I think this approach too software testing is important because it allows for automated generation of test cases with a wide variety of different inputs. This willhelp find vulnerabilities that might not get found with user generated test cases.
 
 #### Use-Case
 
-
+I think this approach to testing can be useful in the developmental project chasten. Specifically with testing xpath expressions with different xpath versions. A grammer can be made to randomly generate valid xpath expressions and feed them into different xpath parsers.
