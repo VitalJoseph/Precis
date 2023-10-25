@@ -357,3 +357,34 @@ Reading through this chapter of fuzzingbook I recalled working with grammars bef
 #### Use-Case
 
 I think this approach to testing can be useful in the developmental project chasten. Specifically with testing xpath expressions with different xpath versions. A grammer can be made to randomly generate valid xpath expressions and feed them into different xpath parsers.
+
+
+# Week 9
+
+## SE7
+
+#### Summary
+
+This chapter "Leading at Scale", piggey backs off the last chapter "How to lead a Team" to an extent. This chapter talks about how to be effective and efficient further along the path of leadership. Last chapter talked about stepping in to a leadership role from a individual contributor. The main points of this chapter revolves around the "Three Always of leadership”: Always Be Deciding, Always Be Leaving, Always Be Scaling.
+
+#### Reflection
+
+Reading the article I reflected on the three always of leadership and got a good understanding of each one. To me, always be deciding is important because as a leader you need to be able to manage your team but not micromanaging your team. It is not your role to solve specific engineering tasks but to identify the tradeoffs and constraints and put together an efficeint plan to get the task done. always be leaving stems from this idea as well. As a leader of an organization, you want to team to be able to self manage. It is your job as a leader to establish a culture in where your team members are progressively getting to that leadership role from that indivudal contributor role. Always be scaling is important as well because as a leader you need to make sure that deadlines are being met and issues are be solved with a good balance of quality and quantity.
+
+#### Use-Case
+
+I think so far the project devolpment of chasten has involed all three always of leadership. Because of the course design I think that it is important that the three always are incorportated during project development so that we can maximize our efficiency and effectivness when shipping new tools and updates chasten.
+
+## FB7
+
+#### Summary
+
+
+
+#### Reflection
+
+
+
+#### Use-Case
+
+
