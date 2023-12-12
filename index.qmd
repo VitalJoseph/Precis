@@ -411,12 +411,226 @@ In chasten we have a set of automated test that help initiate a set of rules for
 
 #### Summary
 
+The chapter discusses the use of grammars and parsers for generating and analyzing strings in a structured way. It introduces Parser classes, specifically Parsing Expression Grammar parsers and Earley parsers , which can efficiently parse strings based on specific grammar structures. The chapter also highlights the significance of formal parsers in handling structured input and demonstrates the limitations of ad hoc parsing approaches. It encourages the use of grammars and parsers to accurately analyze and generate strings, especially in scenarios involving complex data formats. This is an example of a ad hoc parser that parses a given CSV-like string and represent its structure as a derivation tree.
+```python
+def simple_parse_csv(mystring: str) -> DerivationTree:
+    children: List[DerivationTree] = []
+    tree = (START_SYMBOL, children)
+    for i, line in enumerate(mystring.split('\n')):
+        children.append(("record %d" % i, [(cell, [])
+                                           for cell in line.split(',')]))
+    return tree
+```
+
+#### Reflection
+
+When designing parsers, especially for complex languages, the derivation tree serves as an intermediate representation during the parsing process. Analyzing the tree can help identify parsing errors, ambiguity in the input, or the presence of unexpected structures. So that is why transforming an input string into a derivation tree is a useful technique.
+
+#### Use-Case
+
+I feel like in chasten it owuld be a little challenging to incorportate this technique but it could prove beneficial. Especially with the likes of differne txpath patterns that could be analyzed more specfically and precisely.;
+
+# Week 12 
+
+## SE9
+
+#### Summary
+
+In this section of the software engineering chapter at Google, the focus is on code review, a process where code is examined by someone other than its author, typically before it gets integrated into the codebase. Google employs a dedicated tool called "Critique" to facilitate this process, and they follow a structured six-step approach for code review:
+
+1.The author makes changes to the code in their workspace and generates a summary of the modifications.
+2.The author has the option to utilize automated comments or perform a self-review.
+3.Reviewers inspect the modified code using the code review tool and provide comments on the changes.
+4.Based on the feedback received, the author revises the code and uploads a snippet of the changes for reevaluation.
+5.Reviewers thoroughly examine the code to ensure satisfaction and express approval.
+6.Once approved, the author is granted permission to upload the changes.
+
+
+#### Reflection
+
+code review is important in software engineering because it allows for potential bugs, logic errors, or security vulnerabilities to be identified and addressed before the code is integrated into the codebase. It also allows for team members to share knowledge through review.
+
+#### Use-Case
+
+In chasten we have a built in review tracker using github that allows for TLs and students to approve changes to the main branch whether it be new code or added documentation. I think this process is well designed already and allows for code review to take place.
+
+## FB9
+
+#### Summary
+
+In this section of the fuzzing book, the concept of Delta Debugging is presented as a method for identifying specific sections of faulty code. Through a systematic process of selectively trimming or eliminating portions of an input, it becomes possible to pinpoint the precise location where a failure occurs. This approach allows us to form hypotheses about the reasons behind the failure based on the isolated segments of the input that trigger the issue. Here is an example of Delta Debugging:
+```python
+class DeltaDebuggingReducer(CachingReducer):
+    """Reduce inputs using delta debugging."""
+
+    def reduce(self, inp: str) -> str:
+        """Reduce input `inp` using delta debugging. Return reduced input."""
+
+        self.reset()
+        assert self.test(inp) != Runner.PASS
+
+        n = 2     # Initial granularity
+        while len(inp) >= 2:
+            start = 0.0
+            subset_length = len(inp) / n
+            some_complement_is_failing = False
+
+            while start < len(inp):
+                complement = inp[:int(start)] + \
+                    inp[int(start + subset_length):]
+
+                if self.test(complement) == Runner.FAIL:
+                    inp = complement
+                    n = max(n - 1, 2)
+                    some_complement_is_failing = True
+                    break
+
+                start += subset_length
+
+            if not some_complement_is_failing:
+                if n == len(inp):
+                    break
+                n = min(n * 2, len(inp))
+
+        return inp
+```
+
+#### Reflection
+
+The Delta Debugging algorithm works like a detective. It keeps making the problem smaller by looking at parts of it and checking if there's still a mistake. It smartly changes how closely it looks at the problem, so it quickly finds the tiniest part that's causing the issue. It's like solving a puzzle, getting rid of pieces until you figure out which one is causing the problem.
+
+#### Use-Case
+
+Reducing Failure-Inducing Inputs can help multiple facets of both the cellveyor and chasten teams in terms of debugging. For example, it can pinpoint any path or xpath pattern that is faulty and show the coder what exactly is causing the failure. Which will speed up the debugging process.
+
+# Week 13
+
+## SE10
+
+#### Summary
+
+Documentation is the main ocal part for this chapter. Even though the benefits of documentation might not be obvious right away, it's a crucial task for developers. They highlight the idea of making documentation easy for readers. Documentation is likened to code, necessitating management and editing procedures similar to those applied to actual code. This implies that documentation is susceptible to various processes, including addressing issues, handling pull requests, accommodating feature requests, and most notably, addressing bugs.
+
+#### Reflection
+
+Documentation is a really vital area of software enginnerring. Having clear informative documentation will allow for team members whether old or new to jump right in to your implementation and get a good idea of what is going on already. This will make it easier for them to improve or edit existing code. Documentation can also help users with actually using a tool that you and your team have imlplemented. If users are not able to use your tool from flaky documentation then what was the point of implementing it?
+
+#### Use-Case
+
+I know I am a culprit of this, but it is important to add additional documentation when implementing new code inside of chasten. There is no poertry check for this so it is easy to finsih code and then having a passing build and think you are done, but having documentation will be very helpful for team members who are searching through your implementation.
+
+## DB1
+
+#### Summary
+
+The chapter helps you learn by explaining how the function works, testing it with examples, finding a problem with handling quotes in HTML tags, and step-by-step fixing the code. To do this, it shows you a visual representation of how the code works and suggests making changes in an organized way to solve the problems.
+
+The chapter also talks about methods that don't work well for fixing issues, like using print statements everywhere, randomly changing code until it works, or making simple fixes that don't really solve the main problem. It stresses the importance of really understanding the code, fixing the main problems, and using a systematic way of debugging.
+
+#### Reflection
+
+For me, Im someone that I like to search the internet for different instances of the same issues, ie. Stack Oveflow, but sometimes issues are unique and havent really been resolved before. So it is important that you understand what being tested because it will make it easier to try and come up with a hypothesis as to what is bugged.
+
+#### Use-Case
+
+Nothing really technical that could be applied to our working development teams, but insight for sure on how to go about debugging issues so that debugging can be more proficient and efficient.
+
+# Week 14
+
+## SE11
+
+#### Summary
+
+In the chapter "Testing Overview", the importance of testing is discussed. Testing has always been important in coding, and it used to be something people did only manually. But now, we can automate tests, which makes it easier for software engineers to make changes to their code quickly. Google categorizes tests into three sizes: small, medium, and large. Small tests are those that operate independently without interacting with other processes. Medium tests have the capability to run on multiple threads, interact with web requests, and make various types of blocking calls. Large tests span across multiple machines, and there are fewer restrictions on what they can do.  
+
+#### Reflection
+
+Testing is valuable as it can be used to sense vulnerabilties and bugs within code. It acts as a sense of security to programs. As it is important to have test cases,, you dont want test cases that fail or break builds  because that would be doing more harm then little. That is why it is important to have majority smaller test cases that can test a specific output and not a large scale. The larger the test case the flkier it gets or the more risky it gets to pottentialy breaking the tool.
+
+#### Use-Case
+
+Not a lot of us have actually imlplemented test cases before in this instance per say, so I think it would be helpful if we go some examples or just a guide on how to write test cases and how they should look. I think this would increase everyones confidence on actually writing test cases and in result produce more, which we need, so that we have a good coverge of our tools.
+
+## DB2
+
+#### Summary
+
+The chapter of debugging book discusses the concept of tracing executions in Python for the purpose of debugging. It introduces a Tracer class that allows developers to log events during program execution and customize tracing as needed. The text covers various aspects, such as accessing source code, tracing calls and returns from functions, and monitoring variable changes. The Tracer class is extended to display the source code of the function being tracked, report function calls and returns, and highlight variable changes. Here is an example of the tracit function, a function to trace the execution of a Python program.
+```python
+def traceit(frame: FrameType, event: str, arg: Any) -> Optional[Callable]:  # type: ignore
+    if 'c' in frame.f_locals:
+        value_of_c = frame.f_locals['c']
+        print(f"{frame.f_lineno:} c = {repr(value_of_c)}")
+    else:
+        print(f"{frame.f_lineno:} c is undefined")
+
+    return traceit
+```
+It is designed to be called at each line of code execution.
+
+#### Reflection/Use-Case
+
+Tracing executions is a versatile method that aids in different areas of software engineering. It assists in debugging, enhancing performance, conducting tests, analyzing security, and transferring knowledge within the development process.
+
+
+# Week 15
+
+## SE12
+
+#### Summary
 
 
 #### Reflection
 
 
+#### Use-Case
+
+
+## DB3
+
+#### Summary
+
+
+
+#### Reflection/Use-Case
+
+
+# Week 16
+
+## DB4
+
+#### Summary
+
+This chapter highlights methods and concepts for statistical debugging, which involves linking specific events like covered code lines with both successful and unsuccessful results.
+Statistical debugging works by connecting bugs with specific behaviors or features in a program. It involves gathering details about how the program runs, like values of variables, functions used, or the order of actions. After collecting this data, statistical analysis is applied to recognize patterns linked to the existence of bugs. Here is an example of a class designed to track and record information about covered locations during the execution of a program.
+```python
+class CoverageCollector(Collector, StackInspector):
+    """A class to record covered locations during execution."""
+
+    def __init__(self) -> None:
+        """Constructor."""
+        super().__init__()
+        self._coverage: Coverage = set()
+
+    def collect(self, frame: FrameType, event: str, arg: Any) -> None:
+        """
+        Save coverage for an observed event.
+        """
+        name = frame.f_code.co_name
+        function = self.search_func(name, frame)
+
+        if function is None:
+            function = self.create_function(frame)
+
+        location = (function, frame.f_lineno)
+        self._coverage.add(location)
+```
+
+#### Reflection
+
+Statistical debugging is valuable because it addresses the challenges posed by large codebases, enhances the efficiency of bug detection, provides insights into program behaviors, supports data-driven decision-making, complements traditional debugging methods, and contributes to continuous improvement in software development.
 
 #### Use-Case
 
+Statistical debugging is like having a special tool to find and fix mistakes in big and complicated computer programs. Imagine if you had a really huge puzzle, and instead of looking at each piece one by one, you use a smart method to see which pieces are most likely to be part of a problem. Statistical debugging does something similar for computer programs. It helps developers understand how the program behaves and where mistakes might be hiding. This way, they can find and fix the issues faster, especially when dealing with large and complex code. Our development teams could incorporate this technique for debugging, but ultimatley would have to decide as a team if implementing this type of code would be necessary for our tools chasten and cellveyor specfically. It might prove to be more benefical in the future though, as our code becomes more and more complex.
 
